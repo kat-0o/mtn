@@ -48,13 +48,6 @@ public class CacheConfiguration {
             createCache(cm, io.jumpco.dealers.domain.User.class.getName());
             createCache(cm, io.jumpco.dealers.domain.Authority.class.getName());
             createCache(cm, io.jumpco.dealers.domain.User.class.getName() + ".authorities");
-            createCache(cm, io.jumpco.dealers.domain.UserProfile.class.getName());
-            createCache(cm, io.jumpco.dealers.domain.UserRole.class.getName());
-            createCache(cm, io.jumpco.dealers.domain.UserRole.class.getName() + ".users");
-            createCache(cm, io.jumpco.dealers.domain.Report.class.getName());
-            createCache(cm, io.jumpco.dealers.domain.Report.class.getName() + ".roles");
-            createCache(cm, io.jumpco.dealers.domain.Report.class.getName() + ".reportParameters");
-            createCache(cm, io.jumpco.dealers.domain.ReportParameter.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
