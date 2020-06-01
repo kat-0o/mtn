@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reportParameter">
+            <h2><span jhiTranslate="mtnDealerReportApp.reportParameter.detail.title">Report Parameter</span> {{ reportParameter.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mtnDealerReportApp.reportParameter.name">Name</span></dt>
+                <dd>
+                    <span>{{ reportParameter.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.reportParameter.description">Description</span></dt>
+                <dd>
+                    <span>{{ reportParameter.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.reportParameter.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'mtnDealerReportApp.ParameterType.' + reportParameter.type }}">{{ reportParameter.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.reportParameter.dataType">Data Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'mtnDealerReportApp.ParameterDataType.' + reportParameter.dataType }}">{{ reportParameter.dataType }}</span>
+                </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.reportParameter.defaultValue">Default Value</span></dt>
+                <dd>
+                    <span>{{ reportParameter.defaultValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.reportParameter.report">Report</span></dt>
+                <dd>
+                    <div *ngIf="reportParameter.report">
+                        <a [routerLink]="['/report', reportParameter.report?.id, 'view']">{{ reportParameter.report?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/report-parameter', reportParameter.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

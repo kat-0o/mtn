@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-user-role-heading" jhiTranslate="mtnDealerReportApp.userRole.home.createOrEditLabel">Create or edit a User Role</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mtnDealerReportApp.userRole.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mtnDealerReportApp.userRole.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="mtnDealerReportApp.userRole.user" for="field_users">User</label>
+                    <select class="form-control" id="field_users" multiple name="users" formControlName="users">
+                        <option [ngValue]="getSelected(editForm.get('users')!.value, userOption)" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mtnDealerReportApp.userRole.report" for="field_report">Report</label>
+                    <select class="form-control" id="field_report" name="report" formControlName="report">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reportOption.id === editForm.get('report')!.value?.id ? editForm.get('report')!.value : reportOption" *ngFor="let reportOption of reports; trackBy: trackById">{{ reportOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

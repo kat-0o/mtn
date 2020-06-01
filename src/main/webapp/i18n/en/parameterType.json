@@ -1,0 +1,10 @@
+{
+  "mtnDealerReportApp": {
+    "ParameterType": {
+      "null": "",
+      "OPTIONAL": "OPTIONAL",
+      "REQUIRED": "REQUIRED",
+      "MANY": "MANY"
+    }
+  }
+}

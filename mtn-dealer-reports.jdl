@@ -1,0 +1,83 @@
+enum ReportType {
+	TABLE,
+    CHART,
+	DOCUMENT
+}
+
+enum ParameterType {
+	OPTIONAL
+	REQUIRED,
+	MANY
+}
+
+enum ParameterDataType {
+	STRING,
+	NUMBER,
+	DECIMAL,
+	BOOLEAN,
+	DATE,
+	DATE_TIME,
+	TIME
+}
+
+entity UserProfile {
+	mobile String,
+	email String	
+}
+
+entity UserRole {
+	name String,
+	description String	
+}
+
+entity Report {
+	name String,
+    description String,
+	type ReportType
+}
+
+entity ReportParameter {
+	name String,
+	description String,
+	type ParameterType,
+	dataType ParameterDataType,
+	defaultValue String
+}
+
+
+relationship OneToOne {
+	UserProfile{user} to User
+}
+
+relationship ManyToMany {
+	UserRole{user} to User{role}
+}
+
+relationship OneToMany {
+	Report{role} to UserRole
+}
+
+relationship OneToMany {
+	Report to ReportParameter{report}
+}
+
+
+application {
+  config {
+    baseName mtnDealerReport
+    applicationType monolith
+    authenticationType jwt
+    buildTool maven
+    databaseType sql
+    devDatabaseType postgresql
+    prodDatabaseType postgresql
+    packageName io.jumpco.dealers
+    clientFramework angularX
+    cacheProvider ehcache
+    websocket spring-websocket
+  }
+  entities *
+}
+
+service all with serviceImpl 
+

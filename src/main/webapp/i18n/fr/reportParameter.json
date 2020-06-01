@@ -1,0 +1,27 @@
+{
+  "mtnDealerReportApp": {
+    "reportParameter": {
+      "home": {
+        "title": "ReportParameters",
+        "createLabel": "Créer un nouveau Report Parameter",
+        "createOrEditLabel": "Créer ou éditer un Report Parameter",
+        "notFound": "Aucun Report Parameter trouvé"
+      },
+      "created": "Un nouveau Report Parameter a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Report Parameter avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Report Parameter avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Report Parameter {{ id }} ?"
+      },
+      "detail": {
+        "title": "Report Parameter"
+      },
+      "name": "Name",
+      "description": "Description",
+      "type": "Type",
+      "dataType": "Data Type",
+      "defaultValue": "Default Value",
+      "report": "Report"
+    }
+  }
+}

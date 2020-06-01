@@ -1,0 +1,43 @@
+{
+  "name": "Report",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "ReportType",
+      "fieldValues": "TABLE,CHART,DOCUMENT"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "userRole",
+      "otherEntityRelationshipName": "report",
+      "relationshipName": "role"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "reportParameter",
+      "otherEntityRelationshipName": "report",
+      "relationshipName": "reportParameter"
+    }
+  ],
+  "changelogDate": "20200601124014",
+  "entityTableName": "report",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["mtnDealerReport"]
+}

@@ -1,0 +1,10 @@
+{
+  "mtnDealerReportApp": {
+    "ReportType": {
+      "null": "",
+      "TABLE": "TABLE",
+      "CHART": "CHART",
+      "DOCUMENT": "DOCUMENT"
+    }
+  }
+}

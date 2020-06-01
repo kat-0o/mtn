@@ -1,0 +1,11 @@
+version: '2'
+services:
+  mtndealerreport-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/mtnDealerReport/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=mtnDealerReport
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
