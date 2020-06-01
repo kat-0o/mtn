@@ -26,6 +26,8 @@
                     <th scope="col" ><span jhiTranslate="mtnDealerReportApp.report.name">Name</span></th>
                     <th scope="col" ><span jhiTranslate="mtnDealerReportApp.report.description">Description</span></th>
                     <th scope="col" ><span jhiTranslate="mtnDealerReportApp.report.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="mtnDealerReportApp.report.lastUpdate">Last Update</span></th>
+                    <th scope="col" ><span jhiTranslate="mtnDealerReportApp.report.config">Config</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -35,6 +37,8 @@
                     <td>{{ report.name }}</td>
                     <td>{{ report.description }}</td>
                     <td jhiTranslate="{{ 'mtnDealerReportApp.ReportType.' + report.type }}">{{ report.type }}</td>
+                    <td>{{ report.lastUpdate | date:'medium' }}</td>
+                    <td>{{ report.config }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

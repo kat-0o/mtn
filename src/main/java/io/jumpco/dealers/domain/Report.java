@@ -2,10 +2,12 @@ package io.jumpco.dealers.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,6 +37,14 @@ public class Report implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private ReportType type;
+
+    @Column(name = "last_update")
+    private ZonedDateTime lastUpdate;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "config")
+    private String config;
 
     @OneToMany(mappedBy = "report")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -90,6 +100,32 @@ public class Report implements Serializable {
 
     public void setType(ReportType type) {
         this.type = type;
+    }
+
+    public ZonedDateTime getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public Report lastUpdate(ZonedDateTime lastUpdate) {
+        this.lastUpdate = lastUpdate;
+        return this;
+    }
+
+    public void setLastUpdate(ZonedDateTime lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public String getConfig() {
+        return config;
+    }
+
+    public Report config(String config) {
+        this.config = config;
+        return this;
+    }
+
+    public void setConfig(String config) {
+        this.config = config;
     }
 
     public Set<UserRole> getRoles() {
@@ -167,6 +203,8 @@ public class Report implements Serializable {
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
             ", type='" + getType() + "'" +
+            ", lastUpdate='" + getLastUpdate() + "'" +
+            ", config='" + getConfig() + "'" +
             "}";
     }
 }

@@ -33,7 +33,9 @@ entity UserRole {
 entity Report {
 	name String,
     description String,
-	type ReportType
+	type ReportType,
+	lastUpdate ZonedDateTime,
+	config TextBlob
 }
 
 entity ReportParameter {

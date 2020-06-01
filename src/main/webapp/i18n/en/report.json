@@ -19,6 +19,8 @@
       "name": "Name",
       "description": "Description",
       "type": "Type",
+      "lastUpdate": "Last Update",
+      "config": "Config",
       "role": "Role",
       "reportParameter": "Report Parameter"
     }

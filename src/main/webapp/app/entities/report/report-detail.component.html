@@ -20,6 +20,14 @@
                 <dd>
                     <span jhiTranslate="{{ 'mtnDealerReportApp.ReportType.' + report.type }}">{{ report.type }}</span>
                 </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.report.lastUpdate">Last Update</span></dt>
+                <dd>
+                    <span>{{ report.lastUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="mtnDealerReportApp.report.config">Config</span></dt>
+                <dd>
+                    <span>{{ report.config }}</span>
+                </dd>
             </dl>
 
             <button type="submit"

@@ -146,3 +146,11 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+
+!/.idea/
+!/.idea/runConfigurations/
+/.idea/workspace.xml
+/.idea/libraries/
+/.idea/sonarlint/
+

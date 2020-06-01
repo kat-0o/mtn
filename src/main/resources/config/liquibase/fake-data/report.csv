@@ -1,11 +1,11 @@
-id;name;description;type
-1;Computer compressing customized;Solomon Islands XML XSS;CHART
-2;Plastic Naira;Home Loan Account connecting;CHART
-3;Credit Card Account;intermediate;TABLE
-4;Tactics;neural;TABLE
-5;definition interactive;Brand Concrete;CHART
-6;Vermont Buckinghamshire;Intelligent primary;DOCUMENT
-7;yellow Associate;South Africa invoice reintermediate;DOCUMENT
-8;Coordinator Markets;Illinois Product;DOCUMENT
-9;Berkshire overriding Rubber;HTTP bottom-line;TABLE
-10;Nepalese Rupee;Incredible;CHART
+id;name;description;type;last_update;config
+1;Computer compressing customized;Solomon Islands XML XSS;CHART;2020-06-01T04:32:13;../fake-data/blob/hipster.txt
+2;open architecture;payment Solomon Islands;TABLE;2020-05-31T23:51:55;../fake-data/blob/hipster.txt
+3;Credit Card Account;intermediate;TABLE;2020-06-01T11:36:22;../fake-data/blob/hipster.txt
+4;analyzer neural bluetooth;Berkshire Mandatory sky blue;CHART;2020-05-31T21:32:04;../fake-data/blob/hipster.txt
+5;Rustic Concrete Tuna overriding auxiliary;mesh XML;TABLE;2020-05-31T13:14:20;../fake-data/blob/hipster.txt
+6;generate bandwidth;yellow Associate;TABLE;2020-06-01T10:40:35;../fake-data/blob/hipster.txt
+7;Branding Coordinator Markets;Illinois Product;DOCUMENT;2020-05-31T19:33:47;../fake-data/blob/hipster.txt
+8;networks Customizable;Switzerland Gorgeous Wooden Pants;TABLE;2020-05-31T20:13:42;../fake-data/blob/hipster.txt
+9;Movies circuit;Awesome Rubber Tuna Strategist e-services;CHART;2020-05-31T12:58:15;../fake-data/blob/hipster.txt
+10;turn-key;mobile Rubber navigating;TABLE;2020-05-31T21:48:49;../fake-data/blob/hipster.txt

@@ -14,9 +14,15 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import javax.persistence.EntityManager;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 
+import static io.jumpco.dealers.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -39,6 +45,12 @@ public class ReportResourceIT {
 
     private static final ReportType DEFAULT_TYPE = ReportType.TABLE;
     private static final ReportType UPDATED_TYPE = ReportType.CHART;
+
+    private static final ZonedDateTime DEFAULT_LAST_UPDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_LAST_UPDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_CONFIG = "AAAAAAAAAA";
+    private static final String UPDATED_CONFIG = "BBBBBBBBBB";
 
     @Autowired
     private ReportRepository reportRepository;
@@ -64,7 +76,9 @@ public class ReportResourceIT {
         Report report = new Report()
             .name(DEFAULT_NAME)
             .description(DEFAULT_DESCRIPTION)
-            .type(DEFAULT_TYPE);
+            .type(DEFAULT_TYPE)
+            .lastUpdate(DEFAULT_LAST_UPDATE)
+            .config(DEFAULT_CONFIG);
         return report;
     }
     /**
@@ -77,7 +91,9 @@ public class ReportResourceIT {
         Report report = new Report()
             .name(UPDATED_NAME)
             .description(UPDATED_DESCRIPTION)
-            .type(UPDATED_TYPE);
+            .type(UPDATED_TYPE)
+            .lastUpdate(UPDATED_LAST_UPDATE)
+            .config(UPDATED_CONFIG);
         return report;
     }
 
@@ -103,6 +119,8 @@ public class ReportResourceIT {
         assertThat(testReport.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testReport.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testReport.getType()).isEqualTo(DEFAULT_TYPE);
+        assertThat(testReport.getLastUpdate()).isEqualTo(DEFAULT_LAST_UPDATE);
+        assertThat(testReport.getConfig()).isEqualTo(DEFAULT_CONFIG);
     }
 
     @Test
@@ -138,7 +156,9 @@ public class ReportResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(report.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
-            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())));
+            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].lastUpdate").value(hasItem(sameInstant(DEFAULT_LAST_UPDATE))))
+            .andExpect(jsonPath("$.[*].config").value(hasItem(DEFAULT_CONFIG.toString())));
     }
     
     @Test
@@ -154,7 +174,9 @@ public class ReportResourceIT {
             .andExpect(jsonPath("$.id").value(report.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
-            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()));
+            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
+            .andExpect(jsonPath("$.lastUpdate").value(sameInstant(DEFAULT_LAST_UPDATE)))
+            .andExpect(jsonPath("$.config").value(DEFAULT_CONFIG.toString()));
     }
     @Test
     @Transactional
@@ -179,7 +201,9 @@ public class ReportResourceIT {
         updatedReport
             .name(UPDATED_NAME)
             .description(UPDATED_DESCRIPTION)
-            .type(UPDATED_TYPE);
+            .type(UPDATED_TYPE)
+            .lastUpdate(UPDATED_LAST_UPDATE)
+            .config(UPDATED_CONFIG);
 
         restReportMockMvc.perform(put("/api/reports")
             .contentType(MediaType.APPLICATION_JSON)
@@ -193,6 +217,8 @@ public class ReportResourceIT {
         assertThat(testReport.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testReport.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testReport.getType()).isEqualTo(UPDATED_TYPE);
+        assertThat(testReport.getLastUpdate()).isEqualTo(UPDATED_LAST_UPDATE);
+        assertThat(testReport.getConfig()).isEqualTo(UPDATED_CONFIG);
     }
 
     @Test

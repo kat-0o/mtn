@@ -13,6 +13,15 @@
       "fieldName": "type",
       "fieldType": "ReportType",
       "fieldValues": "TABLE,CHART,DOCUMENT"
+    },
+    {
+      "fieldName": "lastUpdate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "config",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
     }
   ],
   "relationships": [
