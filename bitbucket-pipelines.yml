@@ -12,4 +12,4 @@ pipelines:
           - maven
           - node
         script: # Modify the commands below to build your repository.
-          - bash ./mvn -B verify # -B batch mode makes Maven less verbose
+          - bash ./mvnw -B verify # -B batch mode makes Maven less verbose
